@@ -1,0 +1,25 @@
+version: "3.2"
+services:
+  pwa:
+    restart: always
+    image: fwchen/tnki-pwa:latest
+    ports:
+      - "127.0.0.1:9090:80"
+    networks:
+      - tnki
+  desktop:
+    restart: always
+    image: fwchen/tnki-desktop:latest
+    ports:
+      - "127.0.0.1:9090:80"
+    networks:
+    - tnki
+  api:
+    restart: always
+    image: fwchen/tnki:latest
+    networks:
+      - tnki
+    volumes:
+      - ./application.properties:/app/build/resources/main/application.properties
+networks:
+  tnki:
