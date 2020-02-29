@@ -9,7 +9,7 @@ services:
       - tnki
   desktop:
     restart: always
-    image: fwchen/tnki-desktop:latest
+    image: fwchen/tnki-portal-desktop:latest
     ports:
       - "127.0.0.1:9120:80"
     networks:
