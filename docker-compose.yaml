@@ -1,25 +1,30 @@
 version: "3.2"
 services:
+  portal_gateway:
+    restart: always
+    image: fwchen/tnki-portal-gateway:latest
+    ports: 
+      - "9200:80"
+    networks:
+      - tnki
   pwa:
     restart: always
     image: fwchen/tnki-pwa:latest
     ports:
-      - "127.0.0.1:9110:80"
+      - "127.0.0.1:9210:80"
     networks:
       - tnki
   desktop:
     restart: always
     image: fwchen/tnki-portal-desktop:latest
     ports:
-      - "127.0.0.1:9120:80"
+      - "127.0.0.1:9220:80"
     networks:
-    - tnki
+      - tnki
   api:
     restart: always
     image: fwchen/tnki:latest
     networks:
       - tnki
-    volumes:
-      - ./application.properties:/app/build/resources/main/application.properties
 networks:
   tnki:
