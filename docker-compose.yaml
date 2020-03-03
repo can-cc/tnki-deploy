@@ -21,9 +21,18 @@ services:
       - "127.0.0.1:9220:80"
     networks:
       - tnki
+  # api:
+  #   env_file:
+  #     - .env
+  #   restart: always
+  #   image: fwchen/tnki:latest
+  #   networks:
+  #     - tnki
   api:
+    env_file:
+      - .env
     restart: always
-    image: fwchen/tnki:latest
+    image: fwchen/tnki-apm:latest
     networks:
       - tnki
 networks:
