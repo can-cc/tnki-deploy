@@ -4,7 +4,7 @@ services:
     restart: always
     image: fwchen/tnki-portal-gateway:latest
     ports: 
-      - "9200:80"
+      - "10200:80"
     networks:
       - tnki
   pwa:
